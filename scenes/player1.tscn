@@ -77,6 +77,26 @@
 [ext_resource type="Texture2D" uid="uid://wvm3jrw6sb0t" path="res://assets/charaacter 1/left attackin/Left - Attacking_007.png" id="117_vo0no"]
 [ext_resource type="Texture2D" uid="uid://cr8idn6t4520c" path="res://assets/charaacter 1/left attackin/Left - Attacking_008.png" id="118_z69ru"]
 [ext_resource type="Texture2D" uid="uid://bycb45ko501v6" path="res://assets/charaacter 1/left attackin/Left - Attacking_009.png" id="119_zsnq0"]
+[ext_resource type="Texture2D" uid="uid://rgqvgk687oo1" path="res://assets/charaacter 1/righthurt/Right - Hurt_000.png" id="200_gah3e"]
+[ext_resource type="Texture2D" uid="uid://cpvq75o71nnlk" path="res://assets/charaacter 1/righthurt/Right - Hurt_001.png" id="201_l3cr1"]
+[ext_resource type="Texture2D" uid="uid://buaea5kbywev2" path="res://assets/charaacter 1/righthurt/Right - Hurt_002.png" id="202_7z80r"]
+[ext_resource type="Texture2D" uid="uid://d68ccge4s8l6" path="res://assets/charaacter 1/righthurt/Right - Hurt_003.png" id="203_01lad"]
+[ext_resource type="Texture2D" uid="uid://40t5yci4fylj" path="res://assets/charaacter 1/righthurt/Right - Hurt_004.png" id="204_iiib2"]
+[ext_resource type="Texture2D" uid="uid://bl41ns7wlxu71" path="res://assets/charaacter 1/righthurt/Right - Hurt_005.png" id="205_ioedr"]
+[ext_resource type="Texture2D" uid="uid://bqra4t7qecejk" path="res://assets/charaacter 1/righthurt/Right - Hurt_006.png" id="206_bhop1"]
+[ext_resource type="Texture2D" uid="uid://c3jcuf8i7jyjh" path="res://assets/charaacter 1/righthurt/Right - Hurt_007.png" id="207_fs62s"]
+[ext_resource type="Texture2D" uid="uid://dm76qnpvdpwm0" path="res://assets/charaacter 1/righthurt/Right - Hurt_008.png" id="208_oweox"]
+[ext_resource type="Texture2D" uid="uid://drne5h46nq0vl" path="res://assets/charaacter 1/righthurt/Right - Hurt_009.png" id="209_oxvcx"]
+[ext_resource type="Texture2D" uid="uid://barid1okfp87" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_000.png" id="210_qiy79"]
+[ext_resource type="Texture2D" uid="uid://fkql7gc6ushb" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_001.png" id="211_26qgk"]
+[ext_resource type="Texture2D" uid="uid://ct4goqihyel5c" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_002.png" id="212_gix0l"]
+[ext_resource type="Texture2D" uid="uid://c6yonbulfuthk" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_003.png" id="213_qyyki"]
+[ext_resource type="Texture2D" uid="uid://c0psxxmtscbjq" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_004.png" id="214_hu5rb"]
+[ext_resource type="Texture2D" uid="uid://cdw102u5aolwg" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_005.png" id="215_uh56l"]
+[ext_resource type="Texture2D" uid="uid://k0uqc5f0sx27" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_006.png" id="216_jqtw7"]
+[ext_resource type="Texture2D" uid="uid://crn6mevbdod2j" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_007.png" id="217_r71d8"]
+[ext_resource type="Texture2D" uid="uid://5k3xlmi0wxvg" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_008.png" id="218_fykkx"]
+[ext_resource type="Texture2D" uid="uid://v8nop6lsojhl" path="res://assets/charaacter 1/lefft hurt/Left - Hurt_009.png" id="219_xdbwg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1"]
 animations = [{
@@ -337,6 +357,76 @@ animations = [{
 "loop": false,
 "name": &"attack_left",
 "speed": 22.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("200_gah3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_l3cr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("202_7z80r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_01lad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_iiib2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("205_ioedr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_bhop1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_fs62s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_oweox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_oxvcx")
+}],
+"loop": false,
+"name": &"hurt_right",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("210_qiy79")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_26qgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_gix0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_qyyki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_hu5rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_uh56l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_jqtw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_r71d8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_fykkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("219_xdbwg")
+}],
+"loop": false,
+"name": &"hurt_left",
+"speed": 30.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]

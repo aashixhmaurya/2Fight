@@ -8,7 +8,15 @@ var jump_power = -820.0
 var gravity = 2200.0
 var enemy
 
+var health = 100
+var max_health = 100
+var damage = 10
+var knockback = 380.0
+
 var attacking = false
+var hurt = false
+var hurt_time = 0.35
+var hurt_left = 0.0
 var already_hit = false
 var hit_start_frame = 4
 var hit_end_frame = 6
@@ -24,6 +32,16 @@ func _ready():
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+	if hurt:
+		hurt_left -= delta
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, 1800 * delta)
+		if hurt_left <= 0 and is_on_floor():
+			hurt = false
+			anim.modulate = Color.WHITE
+		move_and_slide()
+		return
 
 	if attacking:
 		if is_on_floor():
@@ -78,12 +96,22 @@ func check_hit():
 		return
 	for body in hitbox.get_overlapping_bodies():
 		if body == enemy:
-			enemy.got_hit()
+			var side = 1
+			if facing == "left":
+				side = -1
+			enemy.got_hit(damage, side)
 			already_hit = true
 
 
-func got_hit():
-	print(name + " got hit")
+func got_hit(dmg, from_side):
+	attacking = false
+	hurt = true
+	hurt_left = hurt_time
+	health = max(health - dmg, 0)
+	velocity = Vector2(from_side * knockback, -180)
+	anim.modulate = Color(1, 0.35, 0.35)
+	anim.play("hurt_" + facing)
+	print(name + " hp " + str(health))
 
 
 func attack_done():
