@@ -6,6 +6,7 @@ extends CharacterBody2D
 var speed = 280.0
 var jump_power = -820.0
 var gravity = 2200.0
+var enemy
 
 @onready var anim = $AnimatedSprite2D
 
@@ -22,10 +23,7 @@ func _physics_process(delta):
 
 	velocity.x = dir * speed
 
-	if dir > 0:
-		facing = "right"
-	elif dir < 0:
-		facing = "left"
+	look_at_enemy()
 
 	move_and_slide()
 
@@ -33,3 +31,13 @@ func _physics_process(delta):
 		anim.play("run_" + facing)
 	else:
 		anim.play("idle_" + facing)
+
+
+func look_at_enemy():
+	if enemy == null:
+		return
+	var gap = enemy.global_position.x - global_position.x
+	if gap > 4:
+		facing = "right"
+	elif gap < -4:
+		facing = "left"

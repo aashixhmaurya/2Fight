@@ -253,6 +253,7 @@ animations = [{
 size = Vector2(80, 210)
 
 [node name="Player2" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_player")
 player_number = 2
 facing = "left"
