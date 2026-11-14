@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @export var player_number = 1
+@export var facing = "right"
 
 var speed = 280.0
 var jump_power = -820.0
 var gravity = 2200.0
-var facing = "right"
 
 @onready var anim = $AnimatedSprite2D
 

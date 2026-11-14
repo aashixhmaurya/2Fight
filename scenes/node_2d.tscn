@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cqdqomvui6v16" path="res://assets/image.png" id="1_4dvvg"]
 [ext_resource type="PackedScene" uid="uid://c8p1ayer0ne1" path="res://scenes/player1.tscn" id="2_p1"]
+[ext_resource type="PackedScene" uid="uid://c8p2ayertwo2" path="res://scenes/player2.tscn" id="3_p2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_floor"]
 
@@ -11,29 +12,32 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_right"]
 normal = Vector2(-1, 0)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1536613291]
 
-[node name="bg" type="Sprite2D" parent="."]
+[node name="bg" type="Sprite2D" parent="." unique_id=720976006]
 position = Vector2(640, 233)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("1_4dvvg")
 
-[node name="ground" type="StaticBody2D" parent="."]
+[node name="ground" type="StaticBody2D" parent="." unique_id=2140978108]
 
-[node name="floor" type="CollisionShape2D" parent="ground"]
+[node name="floor" type="CollisionShape2D" parent="ground" unique_id=1864242325]
 position = Vector2(640, 640)
 shape = SubResource("WorldBoundaryShape2D_floor")
 
-[node name="left_wall" type="CollisionShape2D" parent="ground"]
+[node name="left_wall" type="CollisionShape2D" parent="ground" unique_id=1029898637]
 position = Vector2(20, 360)
 shape = SubResource("WorldBoundaryShape2D_left")
 
-[node name="right_wall" type="CollisionShape2D" parent="ground"]
+[node name="right_wall" type="CollisionShape2D" parent="ground" unique_id=484144073]
 position = Vector2(1260, 360)
 shape = SubResource("WorldBoundaryShape2D_right")
 
-[node name="Player1" parent="." instance=ExtResource("2_p1")]
+[node name="player1" parent="." unique_id=2091401247 instance=ExtResource("2_p1")]
 position = Vector2(420, 640)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="player2" parent="." unique_id=1187912571 instance=ExtResource("3_p2")]
+position = Vector2(860, 640)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1548813379]
 position = Vector2(640, 360)
