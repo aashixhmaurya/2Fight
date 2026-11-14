@@ -1,19 +1,39 @@
 [gd_scene format=3 uid="uid://dodcdbqwf4lir"]
 
-[ext_resource type="PackedScene" uid="uid://drjxcw38ntmiq" path="res://scenes/right_to_left_runn.tscn" id="1_6e84v"]
+[ext_resource type="Texture2D" uid="uid://cqdqomvui6v16" path="res://assets/image.png" id="1_4dvvg"]
+[ext_resource type="PackedScene" uid="uid://c8p1ayer0ne1" path="res://scenes/player1.tscn" id="2_p1"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_upivk"]
-distance = -240.0
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_floor"]
 
-[node name="Game" type="Node2D" unique_id=1689704414]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_left"]
+normal = Vector2(1, 0)
 
-[node name="right to left runn" parent="." unique_id=1132986805 instance=ExtResource("1_6e84v")]
-position = Vector2(466, 166)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_right"]
+normal = Vector2(-1, 0)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1302534197]
+[node name="Game" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D" unique_id=877032067]
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(640, 233)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("1_4dvvg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D" unique_id=568218792]
-position = Vector2(484, 36)
-shape = SubResource("WorldBoundaryShape2D_upivk")
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="floor" type="CollisionShape2D" parent="ground"]
+position = Vector2(640, 640)
+shape = SubResource("WorldBoundaryShape2D_floor")
+
+[node name="left_wall" type="CollisionShape2D" parent="ground"]
+position = Vector2(20, 360)
+shape = SubResource("WorldBoundaryShape2D_left")
+
+[node name="right_wall" type="CollisionShape2D" parent="ground"]
+position = Vector2(1260, 360)
+shape = SubResource("WorldBoundaryShape2D_right")
+
+[node name="Player1" parent="." instance=ExtResource("2_p1")]
+position = Vector2(420, 640)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
