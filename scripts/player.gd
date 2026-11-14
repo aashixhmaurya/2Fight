@@ -12,9 +12,12 @@ var health = 100
 var max_health = 100
 var damage = 10
 var knockback = 380.0
+var block_damage = 0.2
 
 var attacking = false
+var blocking = false
 var hurt = false
+var dead = false
 var hurt_time = 0.35
 var hurt_left = 0.0
 var already_hit = false
@@ -26,12 +29,18 @@ var hit_end_frame = 6
 
 
 func _ready():
-	anim.animation_finished.connect(attack_done)
+	anim.animation_finished.connect(on_anim_done)
 
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+	if dead:
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, 1800 * delta)
+		move_and_slide()
+		return
 
 	if hurt:
 		hurt_left -= delta
@@ -56,10 +65,21 @@ func _physics_process(delta):
 	look_at_enemy()
 
 	if Input.is_action_just_pressed(p + "attack"):
+		blocking = false
 		attacking = true
 		already_hit = false
 		anim.play("attack_" + facing)
 		return
+
+	if is_on_floor() and Input.is_action_pressed(p + "block"):
+		blocking = true
+		velocity.x = 0
+		anim.play("idle_" + facing)
+		anim.pause()
+		move_and_slide()
+		return
+
+	blocking = false
 
 	if Input.is_action_just_pressed(p + "jump") and is_on_floor():
 		velocity.y = jump_power
@@ -95,7 +115,7 @@ func check_hit():
 	if anim.frame < hit_start_frame or anim.frame > hit_end_frame:
 		return
 	for body in hitbox.get_overlapping_bodies():
-		if body == enemy:
+		if body == enemy and not enemy.dead:
 			var side = 1
 			if facing == "left":
 				side = -1
@@ -104,15 +124,49 @@ func check_hit():
 
 
 func got_hit(dmg, from_side):
-	attacking = false
-	hurt = true
-	hurt_left = hurt_time
+	if dead:
+		return
+
+	var blocked = false
+	if blocking:
+		if facing == "right" and from_side < 0:
+			blocked = true
+		if facing == "left" and from_side > 0:
+			blocked = true
+
+	if blocked:
+		dmg = max(1, int(round(dmg * block_damage)))
+		velocity.x = from_side * knockback * 0.5
+		anim.modulate = Color(0.5, 0.7, 1)
+		var tw = create_tween()
+		tw.tween_property(anim, "modulate", Color.WHITE, 0.25)
+	else:
+		attacking = false
+		hurt = true
+		hurt_left = hurt_time
+		velocity = Vector2(from_side * knockback, -180)
+		anim.modulate = Color(1, 0.35, 0.35)
+		anim.play("hurt_" + facing)
+
 	health = max(health - dmg, 0)
-	velocity = Vector2(from_side * knockback, -180)
-	anim.modulate = Color(1, 0.35, 0.35)
-	anim.play("hurt_" + facing)
 	print(name + " hp " + str(health))
+	if health == 0:
+		die()
 
 
-func attack_done():
+func die():
+	dead = true
+	hurt = false
 	attacking = false
+	blocking = false
+	velocity.y = min(velocity.y, -200)
+	anim.modulate = Color.WHITE
+	anim.play("die")
+
+
+func on_anim_done():
+	attacking = false
+
+
+func is_dead():
+	return dead
