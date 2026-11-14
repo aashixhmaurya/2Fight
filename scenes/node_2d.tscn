@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dodcdbqwf4lir"]
+
+[ext_resource type="PackedScene" uid="uid://drjxcw38ntmiq" path="res://scenes/right_to_left_runn.tscn" id="1_6e84v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_upivk"]
+distance = -240.0
+
+[node name="Game" type="Node2D" unique_id=1689704414]
+
+[node name="right to left runn" parent="." unique_id=1132986805 instance=ExtResource("1_6e84v")]
+position = Vector2(466, 166)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1302534197]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D" unique_id=877032067]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D" unique_id=568218792]
+position = Vector2(484, 36)
+shape = SubResource("WorldBoundaryShape2D_upivk")
