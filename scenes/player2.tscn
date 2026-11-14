@@ -57,6 +57,26 @@
 [ext_resource type="Texture2D" uid="uid://bg333nyn5vrcw" path="res://assets/chractter 2/leftrunning/Left - Running_009.png" id="55_5qyei"]
 [ext_resource type="Texture2D" uid="uid://c0wo4shblurbt" path="res://assets/chractter 2/leftrunning/Left - Running_010.png" id="56_992pn"]
 [ext_resource type="Texture2D" uid="uid://dlx35y4trhwad" path="res://assets/chractter 2/leftrunning/Left - Running_011.png" id="57_s9u90"]
+[ext_resource type="Texture2D" uid="uid://cug3t016b4aap" path="res://assets/chractter 2/rightattacking/Right - Attacking_000.png" id="100_vv6up"]
+[ext_resource type="Texture2D" uid="uid://bnratuoxts7v3" path="res://assets/chractter 2/rightattacking/Right - Attacking_001.png" id="101_3tu5k"]
+[ext_resource type="Texture2D" uid="uid://ci45v8q73gnxy" path="res://assets/chractter 2/rightattacking/Right - Attacking_002.png" id="102_18xtl"]
+[ext_resource type="Texture2D" uid="uid://5ycmubtloyxd" path="res://assets/chractter 2/rightattacking/Right - Attacking_003.png" id="103_70a0t"]
+[ext_resource type="Texture2D" uid="uid://c0a57lxai7uf3" path="res://assets/chractter 2/rightattacking/Right - Attacking_004.png" id="104_w7lau"]
+[ext_resource type="Texture2D" uid="uid://c1lxgm3psrtrn" path="res://assets/chractter 2/rightattacking/Right - Attacking_005.png" id="105_8xrlu"]
+[ext_resource type="Texture2D" uid="uid://ctxmfgentxi03" path="res://assets/chractter 2/rightattacking/Right - Attacking_006.png" id="106_6c5nj"]
+[ext_resource type="Texture2D" uid="uid://cx22hgrgrt018" path="res://assets/chractter 2/rightattacking/Right - Attacking_007.png" id="107_pdfr6"]
+[ext_resource type="Texture2D" uid="uid://c5ggjcutaw4pc" path="res://assets/chractter 2/rightattacking/Right - Attacking_008.png" id="108_xsdnb"]
+[ext_resource type="Texture2D" uid="uid://cyd8qkg3l3ccv" path="res://assets/chractter 2/rightattacking/Right - Attacking_009.png" id="109_flb97"]
+[ext_resource type="Texture2D" uid="uid://coxvt2t3wajw1" path="res://assets/chractter 2/left attacking/Left - Attacking_000.png" id="110_dla9o"]
+[ext_resource type="Texture2D" uid="uid://d1y4h5f6fpbkt" path="res://assets/chractter 2/left attacking/Left - Attacking_001.png" id="111_gwtaf"]
+[ext_resource type="Texture2D" uid="uid://bh4uy03fwos1b" path="res://assets/chractter 2/left attacking/Left - Attacking_002.png" id="112_yg95z"]
+[ext_resource type="Texture2D" uid="uid://bjadiqlk47v0e" path="res://assets/chractter 2/left attacking/Left - Attacking_003.png" id="113_faqw5"]
+[ext_resource type="Texture2D" uid="uid://cnkcc40oid06d" path="res://assets/chractter 2/left attacking/Left - Attacking_004.png" id="114_1ysqw"]
+[ext_resource type="Texture2D" uid="uid://mggre1hg8sck" path="res://assets/chractter 2/left attacking/Left - Attacking_005.png" id="115_qkhxi"]
+[ext_resource type="Texture2D" uid="uid://i8gihd0c3d6k" path="res://assets/chractter 2/left attacking/Left - Attacking_006.png" id="116_x9mdl"]
+[ext_resource type="Texture2D" uid="uid://t0envnma2vwm" path="res://assets/chractter 2/left attacking/Left - Attacking_007.png" id="117_o8pu3"]
+[ext_resource type="Texture2D" uid="uid://dyf2q3eh4e3aq" path="res://assets/chractter 2/left attacking/Left - Attacking_008.png" id="118_ifesd"]
+[ext_resource type="Texture2D" uid="uid://bjetj7fq1mvqn" path="res://assets/chractter 2/left attacking/Left - Attacking_009.png" id="119_tt8v2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p2"]
 animations = [{
@@ -247,7 +267,80 @@ animations = [{
 "loop": true,
 "name": &"run_left",
 "speed": 22.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("100_vv6up")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_3tu5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_18xtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_70a0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_w7lau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_8xrlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_6c5nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_pdfr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_xsdnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_flb97")
+}],
+"loop": false,
+"name": &"attack_right",
+"speed": 22.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("110_dla9o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_gwtaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_yg95z")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_faqw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_1ysqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_qkhxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_x9mdl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_o8pu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_ifesd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_tt8v2")
+}],
+"loop": false,
+"name": &"attack_left",
+"speed": 22.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]
+size = Vector2(120, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2"]
 size = Vector2(80, 210)
@@ -268,3 +361,12 @@ offset = Vector2(0, -218)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -105)
 shape = SubResource("RectangleShape2D_p2")
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2(90, -120)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_hit")

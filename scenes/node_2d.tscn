@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cqdqomvui6v16" path="res://assets/image.png" id="1_4dvvg"]
 [ext_resource type="PackedScene" uid="uid://c8p1ayer0ne1" path="res://scenes/player1.tscn" id="2_p1"]
 [ext_resource type="PackedScene" uid="uid://c8p2ayertwo2" path="res://scenes/player2.tscn" id="3_p2"]
-[ext_resource type="Script" path="res://scripts/main.gd" id="4_main"]
+[ext_resource type="Script" uid="uid://bqi74osmsc7jn" path="res://scripts/main.gd" id="4_main"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_floor"]
 
@@ -42,4 +42,4 @@ position = Vector2(420, 640)
 position = Vector2(860, 640)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1548813379]
-position = Vector2(640, 360)
+position = Vector2(649, 353)

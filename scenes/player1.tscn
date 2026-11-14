@@ -57,6 +57,26 @@
 [ext_resource type="Texture2D" uid="uid://p0rb3gq4gep" path="res://assets/charaacter 1/lft runnin/Left - Running_009.png" id="55_z5c4v"]
 [ext_resource type="Texture2D" uid="uid://cbum05agg7w06" path="res://assets/charaacter 1/lft runnin/Left - Running_010.png" id="56_a4vzy"]
 [ext_resource type="Texture2D" uid="uid://dxewuhar3sklo" path="res://assets/charaacter 1/lft runnin/Left - Running_011.png" id="57_mo8xw"]
+[ext_resource type="Texture2D" uid="uid://cgrifx25er25u" path="res://assets/charaacter 1/right atacking/Right - Attacking_000.png" id="100_5k25v"]
+[ext_resource type="Texture2D" uid="uid://ya0sir38c0l4" path="res://assets/charaacter 1/right atacking/Right - Attacking_001.png" id="101_oroqw"]
+[ext_resource type="Texture2D" uid="uid://0jdl0ulg7hqb" path="res://assets/charaacter 1/right atacking/Right - Attacking_002.png" id="102_d191f"]
+[ext_resource type="Texture2D" uid="uid://du0tqvs0kg87k" path="res://assets/charaacter 1/right atacking/Right - Attacking_003.png" id="103_lj03a"]
+[ext_resource type="Texture2D" uid="uid://c7jer68nbsehw" path="res://assets/charaacter 1/right atacking/Right - Attacking_004.png" id="104_au45q"]
+[ext_resource type="Texture2D" uid="uid://qjlg41iq6ken" path="res://assets/charaacter 1/right atacking/Right - Attacking_005.png" id="105_4149f"]
+[ext_resource type="Texture2D" uid="uid://b17vdbov3ytkn" path="res://assets/charaacter 1/right atacking/Right - Attacking_006.png" id="106_9oicj"]
+[ext_resource type="Texture2D" uid="uid://dij0xmpsbmekq" path="res://assets/charaacter 1/right atacking/Right - Attacking_007.png" id="107_v2lvw"]
+[ext_resource type="Texture2D" uid="uid://def4jpabasp4y" path="res://assets/charaacter 1/right atacking/Right - Attacking_008.png" id="108_ou5d0"]
+[ext_resource type="Texture2D" uid="uid://brerpl3lo2gva" path="res://assets/charaacter 1/right atacking/Right - Attacking_009.png" id="109_0178y"]
+[ext_resource type="Texture2D" uid="uid://mf0ydd4cnjhg" path="res://assets/charaacter 1/left attackin/Left - Attacking_000.png" id="110_lrt1r"]
+[ext_resource type="Texture2D" uid="uid://cekt2ahbgrjoe" path="res://assets/charaacter 1/left attackin/Left - Attacking_001.png" id="111_sfh4z"]
+[ext_resource type="Texture2D" uid="uid://bq4mk5n3wdaq2" path="res://assets/charaacter 1/left attackin/Left - Attacking_002.png" id="112_gtcil"]
+[ext_resource type="Texture2D" uid="uid://bxjwwc1wk47tu" path="res://assets/charaacter 1/left attackin/Left - Attacking_003.png" id="113_id81n"]
+[ext_resource type="Texture2D" uid="uid://c8jc2f1hrmypt" path="res://assets/charaacter 1/left attackin/Left - Attacking_004.png" id="114_4c9ux"]
+[ext_resource type="Texture2D" uid="uid://qynmlgqbmfyi" path="res://assets/charaacter 1/left attackin/Left - Attacking_005.png" id="115_oeusv"]
+[ext_resource type="Texture2D" uid="uid://b0hym2cgykdnb" path="res://assets/charaacter 1/left attackin/Left - Attacking_006.png" id="116_wkuwl"]
+[ext_resource type="Texture2D" uid="uid://wvm3jrw6sb0t" path="res://assets/charaacter 1/left attackin/Left - Attacking_007.png" id="117_vo0no"]
+[ext_resource type="Texture2D" uid="uid://cr8idn6t4520c" path="res://assets/charaacter 1/left attackin/Left - Attacking_008.png" id="118_z69ru"]
+[ext_resource type="Texture2D" uid="uid://bycb45ko501v6" path="res://assets/charaacter 1/left attackin/Left - Attacking_009.png" id="119_zsnq0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1"]
 animations = [{
@@ -247,7 +267,80 @@ animations = [{
 "loop": true,
 "name": &"run_left",
 "speed": 22.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("100_5k25v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_oroqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_d191f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_lj03a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_au45q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_4149f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_9oicj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_v2lvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_ou5d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_0178y")
+}],
+"loop": false,
+"name": &"attack_right",
+"speed": 22.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("110_lrt1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_sfh4z")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_gtcil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_id81n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_4c9ux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_oeusv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_wkuwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_vo0no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_z69ru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_zsnq0")
+}],
+"loop": false,
+"name": &"attack_left",
+"speed": 22.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]
+size = Vector2(120, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1"]
 size = Vector2(80, 210)
@@ -266,3 +359,12 @@ offset = Vector2(0, -218)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -105)
 shape = SubResource("RectangleShape2D_p1")
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2(90, -120)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_hit")
