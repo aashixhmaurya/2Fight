@@ -13,33 +13,86 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_right"]
 normal = Vector2(-1, 0)
 
-[node name="Game" type="Node2D" unique_id=1536613291]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.1, 0.1, 0.12, 0.85)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.95, 0.95, 0.95, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1_fill"]
+bg_color = Color(0.95, 0.75, 0.15, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2_fill"]
+bg_color = Color(0.95, 0.75, 0.15, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="S" type="Node2D" unique_id=1744987560]
 script = ExtResource("4_main")
 
-[node name="bg" type="Sprite2D" parent="." unique_id=720976006]
+[node name="bg" type="Sprite2D" parent="." unique_id=1066883032]
 position = Vector2(640, 233)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("1_4dvvg")
 
-[node name="ground" type="StaticBody2D" parent="." unique_id=2140978108]
+[node name="ground" type="StaticBody2D" parent="." unique_id=2066697604]
 
-[node name="floor" type="CollisionShape2D" parent="ground" unique_id=1864242325]
+[node name="floor" type="CollisionShape2D" parent="ground" unique_id=2049760008]
 position = Vector2(640, 640)
 shape = SubResource("WorldBoundaryShape2D_floor")
 
-[node name="left_wall" type="CollisionShape2D" parent="ground" unique_id=1029898637]
+[node name="left_wall" type="CollisionShape2D" parent="ground" unique_id=227754034]
 position = Vector2(20, 360)
 shape = SubResource("WorldBoundaryShape2D_left")
 
-[node name="right_wall" type="CollisionShape2D" parent="ground" unique_id=484144073]
+[node name="right_wall" type="CollisionShape2D" parent="ground" unique_id=675261975]
 position = Vector2(1260, 360)
 shape = SubResource("WorldBoundaryShape2D_right")
 
-[node name="player1" parent="." unique_id=2091401247 instance=ExtResource("2_p1")]
+[node name="player1" parent="." unique_id=1369530068 instance=ExtResource("2_p1")]
 position = Vector2(420, 640)
 
-[node name="player2" parent="." unique_id=1187912571 instance=ExtResource("3_p2")]
+[node name="player2" parent="." unique_id=1002346992 instance=ExtResource("3_p2")]
 position = Vector2(860, 640)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1548813379]
-position = Vector2(649, 353)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=402854484]
+position = Vector2(640, 360)
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=141383822]
+
+[node name="p1_hp" type="ProgressBar" parent="hud" unique_id=1807687641]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 540.0
+offset_bottom = 70.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p1_fill")
+value = 100.0
+show_percentage = false
+
+[node name="p2_hp" type="ProgressBar" parent="hud" unique_id=1291434995]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -540.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p2_fill")
+value = 100.0
+fill_mode = 1
+show_percentage = false

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var facing = "right"
 
 var speed = 280.0
+var back_speed = 200.0
 var jump_power = -820.0
 var gravity = 2200.0
 var enemy
@@ -14,6 +15,7 @@ var damage = 10
 var knockback = 380.0
 var block_damage = 0.2
 
+var controls_on = false
 var attacking = false
 var blocking = false
 var hurt = false
@@ -23,6 +25,8 @@ var hurt_left = 0.0
 var already_hit = false
 var hit_start_frame = 4
 var hit_end_frame = 6
+var start_pos = Vector2.ZERO
+var start_facing = "right"
 
 @onready var anim = $AnimatedSprite2D
 @onready var hitbox = $hitbox
@@ -30,6 +34,25 @@ var hit_end_frame = 6
 
 func _ready():
 	anim.animation_finished.connect(on_anim_done)
+	start_pos = global_position
+	start_facing = facing
+
+
+func reset_fighter():
+	global_position = start_pos
+	velocity = Vector2.ZERO
+	facing = start_facing
+	health = max_health
+	dead = false
+	hurt = false
+	attacking = false
+	blocking = false
+	hurt_left = 0.0
+	already_hit = false
+	controls_on = false
+	anim.modulate = Color.WHITE
+	anim.play("idle_" + facing)
+	look_at_enemy()
 
 
 func _physics_process(delta):
@@ -54,9 +77,17 @@ func _physics_process(delta):
 
 	if attacking:
 		if is_on_floor():
-			velocity.x = 0
+			velocity.x = move_toward(velocity.x, 0, 1800 * delta)
 		check_hit()
 		move_and_slide()
+		return
+
+	if not controls_on:
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, 1800 * delta)
+		look_at_enemy()
+		move_and_slide()
+		anim.play("idle_" + facing)
 		return
 
 	var p = "p" + str(player_number) + "_"
@@ -84,10 +115,23 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(p + "jump") and is_on_floor():
 		velocity.y = jump_power
 
-	velocity.x = dir * speed
+	var going_back = false
+	if dir != 0:
+		if facing == "right" and dir < 0:
+			going_back = true
+		if facing == "left" and dir > 0:
+			going_back = true
+
+	if dir == 0:
+		velocity.x = move_toward(velocity.x, 0, 1800 * delta)
+	elif going_back:
+		velocity.x = dir * back_speed
+	else:
+		velocity.x = dir * speed
 
 	move_and_slide()
 
+	anim.speed_scale = 1
 	if dir != 0 and is_on_floor():
 		anim.play("run_" + facing)
 	else:
@@ -146,10 +190,10 @@ func got_hit(dmg, from_side):
 		hurt_left = hurt_time
 		velocity = Vector2(from_side * knockback, -180)
 		anim.modulate = Color(1, 0.35, 0.35)
+		anim.speed_scale = 1
 		anim.play("hurt_" + facing)
 
 	health = max(health - dmg, 0)
-	print(name + " hp " + str(health))
 	if health == 0:
 		die()
 
@@ -159,8 +203,10 @@ func die():
 	hurt = false
 	attacking = false
 	blocking = false
+	controls_on = false
 	velocity.y = min(velocity.y, -200)
 	anim.modulate = Color.WHITE
+	anim.speed_scale = 1
 	anim.play("die")
 
 

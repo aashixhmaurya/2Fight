@@ -2,12 +2,13 @@
 
 Simple local 2 player fighting game made in Godot.
 
-Right now you can fight on the same keyboard. Online multiplayer is planned later.
-
 ## Controls
 
-Player 1: A D to move, W to jump, S to block, F to attack  
-Player 2: arrows to move / jump / block, L to attack
+Player 1: A D move, W jump, S block, F or Space attack  
+Player 2: arrows move / jump / block, Enter or L attack  
+R restarts
+
+Best of 3. Hits only connect on attack frames 4-6.
 
 ## License
 
