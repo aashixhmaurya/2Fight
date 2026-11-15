@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dhmpgu2agdilg"
+path="res://.godot/imported/BG 1 GREEN.ogg-931c0ab0f83c1935565c3fb20e9caa6f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/BG 1 GREEN.ogg"
+dest_files=["res://.godot/imported/BG 1 GREEN.ogg-931c0ab0f83c1935565c3fb20e9caa6f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

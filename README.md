@@ -4,13 +4,21 @@ Simple local 2 player fighting game made in Godot.
 
 ## Controls
 
-Player 1: A D move, W jump, S block, F or Space attack  
-Player 2: arrows move / jump / block, Enter or L attack  
+Player 1: A D move, W jump, S block, F or Space attack, Left Shift special  
+Player 2: arrows move / jump / block, Enter or L attack, Right Shift special  
 R restarts
 
-Best of 3. Hits only connect on attack frames 4-6.
+## Flow
 
-When a player loses a round they go to Hell and fight the winner’s black shadow (AI). Press Enter or R from Hell to return to the main match.
+1. **Ground round** — loser goes to Hell  
+2. **Hell** — clear it to unlock the final; die here = **GAME OVER** + restart  
+3. **FINAL power round** — both use powers; die here = **GAME OVER** + restart (no Hell again)
+
+## Audio / UI
+
+BGM: `assets/music/BG 1 GREEN.ogg`  
+SFX: `assets/music/effects/`  
+Font: Press Start 2P (OFL) in `assets/fonts/`
 
 ## License
 
