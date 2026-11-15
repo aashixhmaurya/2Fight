@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://dqcvf4y01uqio"]
+
+[ext_resource type="Texture2D" uid="uid://dfavl3lxrhesn" path="res://assets/hell.png" id="1_hell"]
+[ext_resource type="PackedScene" uid="uid://c8p1ayer0ne1" path="res://scenes/player1.tscn" id="2_p1"]
+[ext_resource type="PackedScene" uid="uid://c8p2ayertwo2" path="res://scenes/player2.tscn" id="3_p2"]
+[ext_resource type="Script" path="res://scripts/hell.gd" id="4_hell"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_floor"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_left"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_right"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.12, 0.05, 0.05, 0.9)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.25, 0.15, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1_fill"]
+bg_color = Color(0.95, 0.45, 0.12, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2_fill"]
+bg_color = Color(0.95, 0.45, 0.12, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Hell" type="Node2D"]
+script = ExtResource("4_hell")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("1_hell")
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="floor" type="CollisionShape2D" parent="ground"]
+position = Vector2(640, 640)
+shape = SubResource("WorldBoundaryShape2D_floor")
+
+[node name="left_wall" type="CollisionShape2D" parent="ground"]
+position = Vector2(20, 360)
+shape = SubResource("WorldBoundaryShape2D_left")
+
+[node name="right_wall" type="CollisionShape2D" parent="ground"]
+position = Vector2(1260, 360)
+shape = SubResource("WorldBoundaryShape2D_right")
+
+[node name="player1" parent="." instance=ExtResource("2_p1")]
+position = Vector2(420, 640)
+
+[node name="player2" parent="." instance=ExtResource("3_p2")]
+position = Vector2(860, 640)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="p1_hp" type="ProgressBar" parent="hud"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 540.0
+offset_bottom = 70.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p1_fill")
+value = 100.0
+show_percentage = false
+
+[node name="p2_hp" type="ProgressBar" parent="hud"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -540.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p2_fill")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="title" type="Label" parent="hud"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 86.0
+offset_right = 220.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.55, 0.25, 1)
+theme_override_font_sizes/font_size = 22
+text = "HELL"
+horizontal_alignment = 1

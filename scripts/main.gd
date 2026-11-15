@@ -74,10 +74,19 @@ func end_round(winner):
 
 	if winner == player1:
 		wins[0] += 1
+		GameState.winner_number = 1
+		GameState.loser_number = 2
 	elif winner == player2:
 		wins[1] += 1
+		GameState.winner_number = 2
+		GameState.loser_number = 1
 
 	await wait(2.2)
+
+	# Loser drops into Hell to train against the winner's black shadow.
+	if winner != null:
+		get_tree().change_scene_to_file("res://scenes/hell.tscn")
+		return
 
 	if wins[0] >= rounds_to_win or wins[1] >= rounds_to_win:
 		match_over = true
